@@ -47,7 +47,7 @@ router.beforeEach(async(to, from, next) => {
 })
 
 router.afterEach(() => {
-  console.log('after1111111111111111')
+  console.log('左边操作一下')
   NProgress.done()
 })
 
