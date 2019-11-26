@@ -5,6 +5,7 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
+import InterfaceInfo from '@/router/interfacemanager'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -55,24 +56,26 @@ export const constantRoutes = [
     }]
   },
 
+  InterfaceInfo,
+
   {
-    path: '/example',
+    path: '/permission',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/permission/role',
+    alwaysShow: true, // will always show the root menu
+    name: 'Permission',
+    meta: {
+      title: '权限管理',
+      icon: 'lock'
+    },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'role',
+        component: () => import('@/views/permission/role'),
+        name: 'RolePermission',
+        meta: {
+          title: '角色权限管理'
+        }
       }
     ]
   },
@@ -163,10 +166,18 @@ export const constantRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
+export const loginRoute = [
+  {
+    path: '/login',
+    component: () => import('@/views/login/index'),
+    hidden: true
+  }
+]
+
 const createRouter = () => new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
+  routes: loginRoute
 })
 
 const router = createRouter()

@@ -15,6 +15,7 @@ export function isExternal(path) {
  * @returns {Boolean}
  */
 export function validUsername(str) {
+  //去后台查询用户是否存在，如果用户名密码都没问题，返回true，否则返回false
   const valid_map = ['admin', 'editor']
   return valid_map.indexOf(str.trim()) >= 0
 }
