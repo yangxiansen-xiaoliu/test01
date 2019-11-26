@@ -47,7 +47,7 @@ router.beforeEach(async(to, from, next) => {
 })
 
 router.afterEach(() => {
-  console.log('after')
+  console.log('after111')
   NProgress.done()
 })
 
