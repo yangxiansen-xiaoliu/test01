@@ -10,7 +10,7 @@ module.exports = {
 
   /**
    * @type {boolean} true | false
-   * @description Whether show the logo in sidebar||测试修改
+   * @description Whether show the logo in sidebar||测试修改111
    */
   sidebarLogo: false
 }
